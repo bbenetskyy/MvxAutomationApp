@@ -16,6 +16,5 @@ namespace MvxAutomationApp.Droid.Views
 
             return this.BindingInflate(Resource.Layout.fragment_main, container, false);
         }
-
     }
 }
