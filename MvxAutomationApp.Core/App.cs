@@ -1,6 +1,6 @@
 ﻿using MvvmCross.IoC;
 using MvvmCross.ViewModels;
-using MvxAutomationApp.Core.ViewModels.Main;
+using MvxAutomationApp.Core.ViewModels;
 
 namespace MvxAutomationApp.Core
 {
