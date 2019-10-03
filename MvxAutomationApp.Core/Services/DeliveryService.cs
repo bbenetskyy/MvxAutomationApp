@@ -3,6 +3,7 @@ using System.Linq;
 using System.Reactive.Linq;
 using System.Threading.Tasks;
 using Akavache;
+using MvxAutomationApp.Core.Extensions;
 using MvxAutomationApp.Core.Models;
 
 namespace MvxAutomationApp.Core.Services
@@ -17,12 +18,11 @@ namespace MvxAutomationApp.Core.Services
         }
         public async Task<bool> PickupPackage(Package package)
         {
-            if (await _blobCache.GetObject<Package>(package.Barcode) != null)
-            {
-                await _blobCache.InsertObject(package.Barcode, package);
-                return true;
-            }
-            return false;
+            if (await _blobCache.ContainsKey(package.Barcode))
+                return false;
+
+            await _blobCache.InsertObject(package.Barcode, package);
+            return true;
         }
 
         public async Task<Package[]> TrackPackages(DateTimeOffset pickupTime) =>
