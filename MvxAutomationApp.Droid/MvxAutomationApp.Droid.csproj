@@ -77,6 +77,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="akavache">
+      <Version>6.8.1</Version>
+    </PackageReference>
+    <PackageReference Include="akavache.core">
+      <Version>6.8.1</Version>
+    </PackageReference>
+    <PackageReference Include="akavache.mobile">
+      <Version>6.8.1</Version>
+    </PackageReference>
+    <PackageReference Include="akavache.sqlite3">
+      <Version>6.8.1</Version>
+    </PackageReference>
     <PackageReference Include="MvvmCross">
       <Version>6.3.1</Version>
     </PackageReference>
@@ -88,6 +100,9 @@
     </PackageReference>
     <PackageReference Include="MvvmCross.Droid.Support.V7.AppCompat">
       <Version>6.3.1</Version>
+    </PackageReference>
+    <PackageReference Include="Splat">
+      <Version>9.0.5</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Constraint.Layout">
       <Version>1.1.2</Version>
@@ -108,7 +123,6 @@
     <AndroidResource Include="Resources\values\strings.xml" />
     <AndroidResource Include="Resources\values\styles.xml" />
     <AndroidResource Include="Resources\values\colors.xml" />
-    <AndroidResource Include="Resources\values\dimens.xml" />
     <AndroidResource Include="Resources\drawable\splash_screen.xml" />
     <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher_round.png" />
@@ -141,6 +155,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\fragment_show_packages.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\dimens.xml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

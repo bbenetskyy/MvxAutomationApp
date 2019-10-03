@@ -3,4 +3,11 @@
     <string name="app_name">Automation Test</string>
     <string name="app_package_dimms">Enter Package Dimms</string>
     <string name="app_show_packages">Show Packages</string>
+    <string name="package_barcode_placeholder">Enter Barcode</string>
+    <string name="package_dimms_hint">Enter Dimms Width x Height x Depth</string>
+    <string name="package_width_placeholder">W</string>
+    <string name="package_height_placeholder">H</string>
+    <string name="package_depth_placeholder">D</string>
+    <string name="package_save_button">Save</string>
+    <string name="package_reset_button">Reset</string>
 </resources>

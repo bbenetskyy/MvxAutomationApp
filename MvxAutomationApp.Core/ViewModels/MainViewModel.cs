@@ -1,7 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using MvvmCross.Commands;
 using MvvmCross.Navigation;
 using MvvmCross.ViewModels;
+using MvxAutomationApp.Core.Models;
+using MvxAutomationApp.Core.Services;
 
 namespace MvxAutomationApp.Core.ViewModels
 {
@@ -11,7 +14,7 @@ namespace MvxAutomationApp.Core.ViewModels
         public IMvxCommand PackageDimmsCommand { get; }
         public IMvxCommand ShowPackagesCommand { get; }
 
-        public MainViewModel(IMvxNavigationService navigationService)
+        public MainViewModel(IMvxNavigationService navigationService, IDeliveryService deliveryService)
         {
             _navigationService = navigationService;
 
