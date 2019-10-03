@@ -12,6 +12,7 @@ namespace MvxAutomationApp.Core.Models
         public double Width { get; set; }
         public double Height { get; set; }
         public double Depth { get; set; }
+        public DateTimeOffset PickupTime { get; set; }
 
         public override string ToString()
         {
