@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -13,6 +14,7 @@ namespace MvxAutomationApp.Core.ViewModels
     public class PackageDimmsViewModel : MvxViewModel
     {
         private readonly IDeliveryService _deliveryService;
+        private readonly IPopupService _popupService;
 
         private string _barcode;
         private double? _width;
@@ -45,9 +47,11 @@ namespace MvxAutomationApp.Core.ViewModels
 
         public IMvxCommand SaveCommand { get; }
 
-        public PackageDimmsViewModel(IDeliveryService deliveryService)
+        public PackageDimmsViewModel(IDeliveryService deliveryService,
+            IPopupService popupService)
         {
             _deliveryService = deliveryService;
+            _popupService = popupService;
 
             SaveCommand = new MvxAsyncCommand(Save);
         }
@@ -65,9 +69,18 @@ namespace MvxAutomationApp.Core.ViewModels
             try
             {
                 var r = await _deliveryService.PickupPackage(package);
+                if (r)
+                {
+                    _popupService.Show(MessageType.Success, package.ToString());
+                }
+                else
+                {
+                    _popupService.Show(MessageType.Error);
+                }
             }
             catch (Exception e)
             {
+                Debugger.Break();
             }
         }
     }
