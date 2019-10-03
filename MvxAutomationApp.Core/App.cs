@@ -1,4 +1,5 @@
-﻿using MvvmCross.IoC;
+﻿using Akavache;
+using MvvmCross.IoC;
 using MvvmCross.ViewModels;
 using MvxAutomationApp.Core.ViewModels;
 
@@ -14,6 +15,8 @@ namespace MvxAutomationApp.Core
                 .RegisterAsLazySingleton();
 
             RegisterAppStart<MainViewModel>();
+
+            BlobCache.ApplicationName = GetType().Assembly.FullName;
         }
     }
 }

@@ -77,6 +77,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="akavache">
+      <Version>6.8.1</Version>
+    </PackageReference>
     <PackageReference Include="MvvmCross">
       <Version>6.3.1</Version>
     </PackageReference>
