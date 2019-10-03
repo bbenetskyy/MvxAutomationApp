@@ -1,4 +1,5 @@
 ﻿using Android.OS;
+using Android.Support.V7.Widget;
 using Android.Views;
 using MvvmCross.Droid.Support.V4;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
@@ -7,14 +8,13 @@ using MvxAutomationApp.Core.ViewModels;
 
 namespace MvxAutomationApp.Droid.Views
 {
-    [MvxFragmentPresentation(typeof(MainContainerViewModel), Resource.Id.content_frame)]
-    public class MainFragment : MvxFragment<MainViewModel>
+    [MvxFragmentPresentation(typeof(MainContainerViewModel), Resource.Id.content_frame, true)]
+    public class PackageDimmsFragment : MvxFragment<PackageDimmsViewModel>
     {
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             base.OnCreateView(inflater, container, savedInstanceState);
-
-            return this.BindingInflate(Resource.Layout.fragment_main, container, false);
+            return this.BindingInflate(Resource.Layout.fragment_package_dimms, container, false);
         }
     }
 }
