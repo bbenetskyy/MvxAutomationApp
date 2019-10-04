@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Android.App;
 using Android.Graphics;
 using Android.Support.V4.Content;
@@ -25,6 +26,18 @@ namespace MvxAutomationApp.Droid.Services
             var toast = Toast.MakeText(_activity, message, ToastLength.Short);
             toast.View.SetBackgroundColor(backgroundColor);
             toast.Show();
+        }
+
+        public Task<DateTimeOffset> PickDate()
+        {
+            var dateNow = DateTimeOffset.Now;
+            var taskSource = new TaskCompletionSource<DateTimeOffset>();
+            var picker = new DatePickerDialog(_activity, (sender, args) =>
+             {
+                 taskSource.SetResult(args.Date);
+             }, dateNow.Year, dateNow.Month - 1, dateNow.Day);
+            picker.Show();
+            return taskSource.Task;
         }
 
         private Color GetBackgroundColor(MessageType messageType)

@@ -16,7 +16,7 @@ namespace MvxAutomationApp.Core.Models
 
         public override string ToString()
         {
-            return $"Dimm ({Width} x {Height} x {Depth}) {Barcode}";
+            return $"Dimm ({Width} x {Height} x {Depth})";
         }
     }
 
