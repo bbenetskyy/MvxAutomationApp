@@ -27,7 +27,8 @@ namespace MvxAutomationApp.Core.Services
 
         public async Task<Package[]> TrackPackages(DateTimeOffset pickupTime) =>
             (await _blobCache.GetAllObjects<Package>()
-                .Select(x => x.Where(p => p.PickupTime == pickupTime)))
+                .Select(x => x.Where(p => p?.PickupTime != null &&
+                                          p.PickupTime.Date == pickupTime.Date)))
             .ToArray();
     }
 }

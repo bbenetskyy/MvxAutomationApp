@@ -90,7 +90,7 @@ namespace MvxAutomationApp.Core.ViewModels
                 var saved = await _deliveryService.PickupPackage(package);
                 if (saved)
                 {
-                    _popupService.Show(MessageType.Success, $"{package} saved");
+                    _popupService.Show(MessageType.Success, $"{package} {package.Barcode} saved");
                 }
                 else
                 {
