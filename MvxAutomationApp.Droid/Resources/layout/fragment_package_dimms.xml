@@ -5,89 +5,89 @@
     xmlns:local="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/barcode_placeholder"
-        android:text="@string/package_barcode_placeholder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_large"
-        android:layout_marginLeft="@dimen/margin_small"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-    <EditText
-        android:id="@+id/barcode_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textCapCharacters"
-        android:hint="@string/package_barcode_placeholder"
-        android:layout_margin="@dimen/margin_medium"
-        app:layout_constraintTop_toBottomOf="@id/barcode_placeholder"
-        local:MvxBind="Text Barcode"/>
+  <TextView
+      android:id="@+id/barcode_placeholder"
+      android:text="@string/package_barcode_placeholder"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/margin_large"
+      android:layout_marginLeft="@dimen/margin_small"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintTop_toTopOf="parent"/>
+  <EditText
+      android:id="@+id/barcode_text"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:inputType="textCapCharacters"
+      android:hint="@string/package_barcode_placeholder"
+      android:layout_margin="@dimen/margin_medium"
+      app:layout_constraintTop_toBottomOf="@id/barcode_placeholder"
+      local:MvxBind="Text Barcode; Error Errors['Barcode']"/>
 
-    <TextView
-        android:id="@+id/dimms_hint"
-        android:text="@string/package_dimms_hint"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_medium"
-        android:layout_marginLeft="@dimen/margin_small"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/barcode_text"/>
+  <TextView
+      android:id="@+id/dimms_hint"
+      android:text="@string/package_dimms_hint"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/margin_medium"
+      android:layout_marginLeft="@dimen/margin_small"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/barcode_text"/>
 
-    <EditText
-        android:id="@+id/dimms_width"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:maxWidth="@dimen/margin_huge"
-        android:inputType="numberDecimal"
-        android:layout_gravity="left"
-        android:hint="@string/package_width_placeholder"
-        app:layout_constraintLeft_toLeftOf="@id/barcode_text"
-        app:layout_constraintTop_toBottomOf="@id/dimms_hint"
-        local:MvxBind="Text Width"/>
-    <EditText
-        android:id="@+id/dimms_height"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:maxWidth="@dimen/margin_huge"
-        android:inputType="numberDecimal"
-        android:layout_gravity="center"
-        android:hint="@string/package_height_placeholder"
-        app:layout_constraintTop_toBottomOf="@id/dimms_hint"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        local:MvxBind="Text Height"/>
-    <EditText
-        android:id="@+id/dimms_depth"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:maxWidth="@dimen/margin_huge"
-        android:inputType="numberDecimal"
-        android:layout_gravity="right"
-        android:hint="@string/package_depth_placeholder"
-        app:layout_constraintTop_toBottomOf="@id/dimms_hint"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginRight="@dimen/margin_medium"
-        local:MvxBind="Text Depth"/>
+  <EditText
+      android:id="@+id/dimms_width"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:maxWidth="@dimen/margin_huge"
+      android:inputType="numberDecimal"
+      android:layout_gravity="left"
+      android:hint="@string/package_width_placeholder"
+      app:layout_constraintLeft_toLeftOf="@id/barcode_text"
+      app:layout_constraintTop_toBottomOf="@id/dimms_hint"
+      local:MvxBind="Text Width; Error Errors['Width']"/>
+  <EditText
+      android:id="@+id/dimms_height"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:maxWidth="@dimen/margin_huge"
+      android:inputType="numberDecimal"
+      android:layout_gravity="center"
+      android:hint="@string/package_height_placeholder"
+      app:layout_constraintTop_toBottomOf="@id/dimms_hint"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      local:MvxBind="Text Height; Error Errors['Height']"/>
+  <EditText
+      android:id="@+id/dimms_depth"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:maxWidth="@dimen/margin_huge"
+      android:inputType="numberDecimal"
+      android:layout_gravity="right"
+      android:hint="@string/package_depth_placeholder"
+      app:layout_constraintTop_toBottomOf="@id/dimms_hint"
+      app:layout_constraintRight_toRightOf="parent"
+      android:layout_marginRight="@dimen/margin_medium"
+      local:MvxBind="Text Depth; Error Errors['Depth']"/>
 
-    <Button
-        android:id="@+id/dimms_reset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/package_reset_button"
-        android:layout_marginLeft="@dimen/margin_medium"
-        android:layout_marginBottom="@dimen/margin_medium"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        local:MvxBind="Click ResetCommand"/>
-    <Button
-        android:id="@+id/dimms_save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/package_save_button"
-        android:layout_marginRight="@dimen/margin_medium"
-        android:layout_marginBottom="@dimen/margin_medium"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        local:MvxBind="Click SaveCommand"/>
+  <Button
+      android:id="@+id/dimms_reset"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/package_reset_button"
+      android:layout_marginLeft="@dimen/margin_medium"
+      android:layout_marginBottom="@dimen/margin_medium"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent"
+      local:MvxBind="Click ResetCommand"/>
+  <Button
+      android:id="@+id/dimms_save"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/package_save_button"
+      android:layout_marginRight="@dimen/margin_medium"
+      android:layout_marginBottom="@dimen/margin_medium"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent"
+      local:MvxBind="Click SaveCommand"/>
 </android.support.constraint.ConstraintLayout>

@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
+using MvvmValidation;
 using MvxAutomationApp.Core.Models;
 using MvxAutomationApp.Core.Services;
+using System.Windows.Input;
+using MvxAutomationApp.Core.Common;
+using MvxAutomationApp.Core.Extensions;
 
 namespace MvxAutomationApp.Core.ViewModels
 {
@@ -20,6 +24,7 @@ namespace MvxAutomationApp.Core.ViewModels
         private double? _width;
         private double? _height;
         private double? _depth;
+        private ObservableDictionary<string, string> _errors;
 
         public string Barcode
         {
@@ -45,6 +50,12 @@ namespace MvxAutomationApp.Core.ViewModels
             set => SetProperty(ref _depth, value);
         }
 
+        public ObservableDictionary<string, string> Errors
+        {
+            get => _errors;
+            set => SetProperty(ref _errors, value);
+        }
+
         public IMvxCommand SaveCommand { get; }
         public IMvxCommand ResetCommand { get; }
 
@@ -60,6 +71,12 @@ namespace MvxAutomationApp.Core.ViewModels
 
         private async Task Save()
         {
+            if (!Validate())
+            {
+                _popupService.Show(MessageType.Error, "Validation didn't pass!");
+                return;
+            }
+
             var package = new Package
             {
                 Barcode = Barcode,
@@ -84,6 +101,20 @@ namespace MvxAutomationApp.Core.ViewModels
             {
                 _popupService.Show(MessageType.Error, e.Message);
             }
+        }
+
+        private bool Validate()
+        {
+            var messagePostfix = "is required.";
+            var validator = new ValidationHelper();
+            validator.AddRequiredRule(() => Barcode, $"{nameof(Barcode)} {messagePostfix}");
+            validator.AddRequiredRule(() => Width, $"{nameof(Width)} {messagePostfix}");
+            validator.AddRequiredRule(() => Height, $"{nameof(Height)} {messagePostfix}");
+            validator.AddRequiredRule(() => Depth, $"{nameof(Depth)} {messagePostfix}");
+
+            var result = validator.ValidateAll();
+            Errors = result.AsObservableDictionary();
+            return result.IsValid;
         }
 
         private void Reset()
