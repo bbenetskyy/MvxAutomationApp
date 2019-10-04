@@ -24,6 +24,7 @@ namespace MvxAutomationApp.Core.ViewModels
         private double? _width;
         private double? _height;
         private double? _depth;
+        private bool _isLoading;
         private ObservableDictionary<string, string> _errors;
 
         public string Barcode
@@ -48,6 +49,12 @@ namespace MvxAutomationApp.Core.ViewModels
         {
             get => _depth;
             set => SetProperty(ref _depth, value);
+        }
+
+        public bool IsLoading
+        {
+            get => _isLoading;
+            set => SetProperty(ref _isLoading, value);
         }
 
         public ObservableDictionary<string, string> Errors
@@ -87,6 +94,7 @@ namespace MvxAutomationApp.Core.ViewModels
             };
             try
             {
+                IsLoading = true;
                 var saved = await _deliveryService.PickupPackage(package);
                 if (saved)
                 {
@@ -100,6 +108,10 @@ namespace MvxAutomationApp.Core.ViewModels
             catch (Exception e)
             {
                 _popupService.Show(MessageType.Error, e.Message);
+            }
+            finally
+            {
+                IsLoading = false;
             }
         }
 
