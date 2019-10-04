@@ -1,4 +1,7 @@
 ﻿using Android.App;
+using Android.Content;
+using Android.Content.PM;
+using Android.Content.Res;
 using Android.OS;
 using Android.Support.Design.Widget;
 using Android.Support.V7.Widget;
@@ -11,7 +14,8 @@ namespace MvxAutomationApp.Droid.Views
 {
     [Activity(
         Theme = "@style/AppTheme",
-        WindowSoftInputMode = SoftInput.AdjustResize | SoftInput.StateHidden)]
+        WindowSoftInputMode = SoftInput.AdjustResize | SoftInput.StateHidden,
+        ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.FontScale | ConfigChanges.ScreenLayout | ConfigChanges.Density | ConfigChanges.UiMode)]
     public class MainContainerActivity : MvxAppCompatActivity<MainContainerViewModel>
     {
         protected override void OnCreate(Bundle bundle)
@@ -38,6 +42,16 @@ namespace MvxAutomationApp.Droid.Views
 
             SupportActionBar.SetDisplayHomeAsUpEnabled(backButtonEnabled);
             SupportActionBar.SetHomeButtonEnabled(backButtonEnabled);
+        }
+
+        protected override void AttachBaseContext(Context @base)
+        {
+            var configuration = new Configuration(@base.Resources.Configuration)
+            {
+                FontScale = 1f
+            };
+            var config = @base.CreateConfigurationContext(configuration);
+            base.AttachBaseContext(config);
         }
 
         public override void OnBackPressed()

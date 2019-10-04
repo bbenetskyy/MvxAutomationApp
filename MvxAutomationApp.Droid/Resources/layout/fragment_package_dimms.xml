@@ -70,7 +70,7 @@
       local:MvxBind="Text Depth; Error Errors['Depth']"/>
 
   <ProgressBar
-    android:id="@+id/progressBar"
+    android:id="@+id/package_dimms_progress_bar"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     local:layout_constraintLeft_toLeftOf="parent"
@@ -87,7 +87,7 @@
       android:layout_marginBottom="@dimen/margin_medium"
       local:layout_constraintLeft_toLeftOf="parent"
       local:layout_constraintBottom_toBottomOf="parent"
-      local:MvxBind="Click ResetCommand"/>
+      local:MvxBind="Click ResetCommand; Enabled InvertedBoolean(IsLoading)"/>
   <Button
       android:id="@+id/dimms_save"
       android:layout_width="wrap_content"
@@ -97,5 +97,5 @@
       android:layout_marginBottom="@dimen/margin_medium"
       local:layout_constraintRight_toRightOf="parent"
       local:layout_constraintBottom_toBottomOf="parent"
-      local:MvxBind="Click SaveCommand"/>
+      local:MvxBind="Click SaveCommand; Enabled InvertedBoolean(IsLoading)"/>
 </android.support.constraint.ConstraintLayout>

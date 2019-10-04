@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
 using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
 using MvvmValidation;
 using MvxAutomationApp.Core.Models;
 using MvxAutomationApp.Core.Services;
-using System.Windows.Input;
 using MvxAutomationApp.Core.Common;
 using MvxAutomationApp.Core.Extensions;
 
