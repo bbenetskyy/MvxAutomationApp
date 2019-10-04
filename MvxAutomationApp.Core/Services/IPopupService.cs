@@ -7,6 +7,6 @@ namespace MvxAutomationApp.Core.Services
 {
     public interface IPopupService
     {
-        void Show(MessageType messageType, string message = "");
+        void Show(MessageType messageType, string message = null);
     }
 }

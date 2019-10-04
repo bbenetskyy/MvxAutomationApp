@@ -46,6 +46,7 @@ namespace MvxAutomationApp.Core.ViewModels
         }
 
         public IMvxCommand SaveCommand { get; }
+        public IMvxCommand ResetCommand { get; }
 
         public PackageDimmsViewModel(IDeliveryService deliveryService,
             IPopupService popupService)
@@ -54,6 +55,7 @@ namespace MvxAutomationApp.Core.ViewModels
             _popupService = popupService;
 
             SaveCommand = new MvxAsyncCommand(Save);
+            ResetCommand = new MvxCommand(Reset);
         }
 
         private async Task Save()
@@ -68,20 +70,29 @@ namespace MvxAutomationApp.Core.ViewModels
             };
             try
             {
-                var r = await _deliveryService.PickupPackage(package);
-                if (r)
+                var saved = await _deliveryService.PickupPackage(package);
+                if (saved)
                 {
-                    _popupService.Show(MessageType.Success, package.ToString());
+                    _popupService.Show(MessageType.Success, $"{package} saved");
                 }
                 else
                 {
-                    _popupService.Show(MessageType.Error);
+                    _popupService.Show(MessageType.Error, $"{package.Barcode} already saved");
                 }
             }
             catch (Exception e)
             {
-                Debugger.Break();
+                _popupService.Show(MessageType.Error, e.Message);
             }
+        }
+
+        private void Reset()
+        {
+            Barcode = null;
+            Depth = null;
+            Height = null;
+            Width = null;
+            _popupService.Show(MessageType.Success, "All data is cleared");
         }
     }
 }
