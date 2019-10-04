@@ -16,6 +16,13 @@ namespace MvxAutomationApp.Core.Services
         {
             _blobCache = blobCache;
         }
+
+        public async Task CleanAllDeliveries()
+        {
+            await _blobCache.InvalidateAll();
+            await _blobCache.Vacuum();
+        }
+
         public async Task<bool> PickupPackage(Package package)
         {
             if (await _blobCache.ContainsKey(package.Barcode))

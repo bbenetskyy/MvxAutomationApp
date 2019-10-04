@@ -10,9 +10,9 @@
     android:id="@+id/pick_date_button"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    local:MvxBind="Click PickDateCommand; Text Format('Selected {0:dd/MM/yyyy}', SelectedDate)"/>
+    local:MvxBind="Click PickDateCommand; Text Format('Selected Date: {0:dd/MM/yyyy}', SelectedDate); Enabled InvertedBoolean(IsLoading)"/>
   <ProgressBar
-    android:id="@+id/progressBar"
+    android:id="@+id/show_packages_progress_bar"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     local:layout_constraintLeft_toLeftOf="parent"

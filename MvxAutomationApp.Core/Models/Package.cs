@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
-using MvvmCross.ViewModels;
 
 namespace MvxAutomationApp.Core.Models
 {
