@@ -11,6 +11,7 @@
     <PackageReference Include="akavache.sqlite3" Version="6.8.1" />
     <PackageReference Include="MvvmCross" Version="6.3.1" />
     <PackageReference Include="MvvmCross.CodeAnalysis" Version="6.3.1" />
+    <PackageReference Include="MvvmValidation" Version="3.1.0" />
     <PackageReference Include="Splat" Version="9.0.5" />
   </ItemGroup>
 </Project>

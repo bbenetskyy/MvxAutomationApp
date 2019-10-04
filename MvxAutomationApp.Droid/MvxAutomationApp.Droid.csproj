@@ -68,6 +68,7 @@
     <Compile Include="Linker\LinkerPleaseInclude.cs" />
     <Compile Include="MainApplication.cs" />
     <Compile Include="Setup.cs" />
+    <Compile Include="Services\PopupService.cs" />
     <Compile Include="Views\MainContainerActivity.cs" />
     <Compile Include="Views\MainFragment.cs" />
     <Compile Include="Views\PackageDimmsFragment.cs" />
