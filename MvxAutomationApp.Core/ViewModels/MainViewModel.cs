@@ -15,6 +15,7 @@ namespace MvxAutomationApp.Core.ViewModels
 
         private bool _isTestDbChecked;
         private bool _isLoading;
+        private int _testRecordsCount = 2000;
 
         public bool IsTestDbChecked
         {
@@ -49,11 +50,11 @@ namespace MvxAutomationApp.Core.ViewModels
             if (IsTestDbChecked)
             {
                 var rnd = new Random();
-                for (int i = 0; i < 2000; i++)
+                for (int i = 0; i < _testRecordsCount; i++)
                 {
                     await _deliveryService.PickupPackage(new Package
                     {
-                        Barcode = rnd.Next(0, 1000000).ToString(),
+                        Barcode = i.ToString(),
                         Depth = rnd.NextDouble(),
                         Width = rnd.NextDouble(),
                         Height = rnd.NextDouble(),
