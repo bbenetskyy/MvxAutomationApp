@@ -21,7 +21,6 @@ namespace MvxAutomationApp.Core.ViewModels
             get => _isTestDbChecked;
             set => SetProperty(ref _isTestDbChecked, value);
         }
-
         public bool IsLoading
         {
             get => _isLoading;
@@ -64,7 +63,7 @@ namespace MvxAutomationApp.Core.ViewModels
             }
             IsLoading = false;
         }
-
+     
         private Task NavigateToPackageDimms()
         {
             return _navigationService.Navigate<PackageDimmsViewModel>();
