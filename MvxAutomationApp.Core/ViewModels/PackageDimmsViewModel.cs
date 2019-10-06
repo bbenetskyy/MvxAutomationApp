@@ -7,6 +7,7 @@ using MvxAutomationApp.Core.Models;
 using MvxAutomationApp.Core.Services;
 using MvxAutomationApp.Core.Common;
 using MvxAutomationApp.Core.Extensions;
+using MvxAutomationApp.Core.Resources;
 
 namespace MvxAutomationApp.Core.ViewModels
 {
@@ -75,29 +76,21 @@ namespace MvxAutomationApp.Core.ViewModels
         {
             if (!Validate())
             {
-                _popupService.Show(MessageType.Error, "Validation didn't pass!");
+                _popupService.Show(MessageType.Error, AppResources.ValidationFailed);
                 return;
             }
-
-            var package = new Package
-            {
-                Barcode = Barcode,
-                Depth = Depth ?? default,
-                Height = Height ?? default,
-                Width = Width ?? default,
-                PickupTime = DateTimeOffset.Now
-            };
             try
             {
                 IsLoading = true;
+                var package = GetPackage();
                 var saved = await _deliveryService.PickupPackage(package);
                 if (saved)
                 {
-                    _popupService.Show(MessageType.Success, $"{package} {package.Barcode} saved");
+                    _popupService.Show(MessageType.Success, string.Format(AppResources.PakcageSaved, $"{package} {package.Barcode}"));
                 }
                 else
                 {
-                    _popupService.Show(MessageType.Error, $"{package.Barcode} already saved");
+                    _popupService.Show(MessageType.Error, string.Format(AppResources.PackageAlreadySaved, package.Barcode));
                 }
             }
             catch (Exception e)
@@ -110,14 +103,25 @@ namespace MvxAutomationApp.Core.ViewModels
             }
         }
 
-        private bool Validate()
+        internal Package GetPackage()
         {
-            var messagePostfix = "is required.";
+            return new Package
+            {
+                Barcode = Barcode,
+                Depth = Depth ?? default,
+                Height = Height ?? default,
+                Width = Width ?? default,
+                PickupTime = DateTimeOffset.Now
+            };
+        }
+
+        internal bool Validate()
+        {
             var validator = new ValidationHelper();
-            validator.AddRequiredRule(() => Barcode, $"{nameof(Barcode)} {messagePostfix}");
-            validator.AddRequiredRule(() => Width, $"{nameof(Width)} {messagePostfix}");
-            validator.AddRequiredRule(() => Height, $"{nameof(Height)} {messagePostfix}");
-            validator.AddRequiredRule(() => Depth, $"{nameof(Depth)} {messagePostfix}");
+            validator.AddRequiredRule(() => Barcode, string.Format(AppResources.FieldRequired, nameof(Barcode)));
+            validator.AddRequiredRule(() => Width, string.Format(AppResources.FieldRequired, nameof(Width)));
+            validator.AddRequiredRule(() => Height,string.Format(AppResources.FieldRequired, nameof(Height)));
+            validator.AddRequiredRule(() => Depth, string.Format(AppResources.FieldRequired, nameof(Depth)));
 
             var result = validator.ValidateAll();
             Errors = result.AsObservableDictionary();
@@ -130,7 +134,7 @@ namespace MvxAutomationApp.Core.ViewModels
             Depth = null;
             Height = null;
             Width = null;
-            _popupService.Show(MessageType.Success, "All data is cleared");
+            _popupService.Show(MessageType.Success, AppResources.DataCleared);
         }
     }
 }
