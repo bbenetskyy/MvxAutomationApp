@@ -5340,24 +5340,6 @@ namespace MvxAutomationApp.Droid
 			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.RecyclerView_reverseLayout = global::MvxAutomationApp.Droid.Resource.Styleable.RecyclerView_reverseLayout;
 			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.RecyclerView_spanCount = global::MvxAutomationApp.Droid.Resource.Styleable.RecyclerView_spanCount;
 			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.RecyclerView_stackFromEnd = global::MvxAutomationApp.Droid.Resource.Styleable.RecyclerView_stackFromEnd;
-			global::MvvmCross.Plugin.Visibility.Resource.Attribute.MvxBind = global::MvxAutomationApp.Droid.Resource.Attribute.MvxBind;
-			global::MvvmCross.Plugin.Visibility.Resource.Attribute.MvxDropDownItemTemplate = global::MvxAutomationApp.Droid.Resource.Attribute.MvxDropDownItemTemplate;
-			global::MvvmCross.Plugin.Visibility.Resource.Attribute.MvxGroupItemTemplate = global::MvxAutomationApp.Droid.Resource.Attribute.MvxGroupItemTemplate;
-			global::MvvmCross.Plugin.Visibility.Resource.Attribute.MvxItemTemplate = global::MvxAutomationApp.Droid.Resource.Attribute.MvxItemTemplate;
-			global::MvvmCross.Plugin.Visibility.Resource.Attribute.MvxLang = global::MvxAutomationApp.Droid.Resource.Attribute.MvxLang;
-			global::MvvmCross.Plugin.Visibility.Resource.Attribute.MvxTemplate = global::MvxAutomationApp.Droid.Resource.Attribute.MvxTemplate;
-			global::MvvmCross.Plugin.Visibility.Resource.Id.MvvmCrossTagId = global::MvxAutomationApp.Droid.Resource.Id.MvvmCrossTagId;
-			global::MvvmCross.Plugin.Visibility.Resource.Id.MvxBindingTagUnique = global::MvxAutomationApp.Droid.Resource.Id.MvxBindingTagUnique;
-			global::MvvmCross.Plugin.Visibility.Resource.Styleable.MvxBinding = global::MvxAutomationApp.Droid.Resource.Styleable.MvxBinding;
-			global::MvvmCross.Plugin.Visibility.Resource.Styleable.MvxBinding_MvxBind = global::MvxAutomationApp.Droid.Resource.Styleable.MvxBinding_MvxBind;
-			global::MvvmCross.Plugin.Visibility.Resource.Styleable.MvxBinding_MvxLang = global::MvxAutomationApp.Droid.Resource.Styleable.MvxBinding_MvxLang;
-			global::MvvmCross.Plugin.Visibility.Resource.Styleable.MvxControl = global::MvxAutomationApp.Droid.Resource.Styleable.MvxControl;
-			global::MvvmCross.Plugin.Visibility.Resource.Styleable.MvxControl_MvxTemplate = global::MvxAutomationApp.Droid.Resource.Styleable.MvxControl_MvxTemplate;
-			global::MvvmCross.Plugin.Visibility.Resource.Styleable.MvxExpandableListView = global::MvxAutomationApp.Droid.Resource.Styleable.MvxExpandableListView;
-			global::MvvmCross.Plugin.Visibility.Resource.Styleable.MvxExpandableListView_MvxGroupItemTemplate = global::MvxAutomationApp.Droid.Resource.Styleable.MvxExpandableListView_MvxGroupItemTemplate;
-			global::MvvmCross.Plugin.Visibility.Resource.Styleable.MvxListView = global::MvxAutomationApp.Droid.Resource.Styleable.MvxListView;
-			global::MvvmCross.Plugin.Visibility.Resource.Styleable.MvxListView_MvxDropDownItemTemplate = global::MvxAutomationApp.Droid.Resource.Styleable.MvxListView_MvxDropDownItemTemplate;
-			global::MvvmCross.Plugin.Visibility.Resource.Styleable.MvxListView_MvxItemTemplate = global::MvxAutomationApp.Droid.Resource.Styleable.MvxListView_MvxItemTemplate;
 		}
 		
 		public partial class Animation
