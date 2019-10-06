@@ -14,4 +14,19 @@
     <PackageReference Include="MvvmValidation" Version="3.1.0" />
     <PackageReference Include="Splat" Version="9.0.5" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\AppResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\AppResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
 </Project>

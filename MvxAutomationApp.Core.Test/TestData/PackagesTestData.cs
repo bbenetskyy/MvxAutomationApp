@@ -54,5 +54,6 @@ namespace MvxAutomationApp.Core.Test.TestData
             new object[] { new DateTimeOffset(2012,12,22,0,0,0,TimeSpan.FromSeconds(0)) },
             new object[] { new DateTimeOffset(2012,12,23,0,0,0,TimeSpan.FromSeconds(0)) }
         };
+
     }
 }

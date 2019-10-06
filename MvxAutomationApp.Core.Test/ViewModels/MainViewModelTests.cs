@@ -18,7 +18,7 @@ using static Moq.Times;
 namespace MvxAutomationApp.Core.Test.ViewModels
 {
     [TestFixture]
-    public class MainViewModelTests: MvxIoCSupportingTest
+    public class MainViewModelTests : MvxIoCSupportingTest
     {
         private Mock<IMvxNavigationService> _navigationMock;
         private Mock<IDeliveryService> _deliveryMock;
@@ -50,7 +50,7 @@ namespace MvxAutomationApp.Core.Test.ViewModels
             viewModel.PackageDimmsCommand.Execute();
 
             //Assert
-            _navigationMock.Verify(n => n.Navigate<PackageDimmsViewModel>(null,default), Once);
+            _navigationMock.Verify(n => n.Navigate<PackageDimmsViewModel>(null, default), Once);
         }
 
         [Test]
