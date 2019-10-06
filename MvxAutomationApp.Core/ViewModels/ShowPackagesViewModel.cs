@@ -49,7 +49,7 @@ namespace MvxAutomationApp.Core.ViewModels
             PickDateCommand = new MvxAsyncCommand(PickDate);
         }
 
-        private async Task LoadPackages()
+        internal async Task LoadPackages()
         {
             IsLoading = true;
             Packages.SwitchTo(await _deliveryService.TrackPackages(SelectedDate));

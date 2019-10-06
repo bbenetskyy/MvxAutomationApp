@@ -103,7 +103,7 @@ namespace MvxAutomationApp.Core.ViewModels
             }
         }
 
-        protected Package GetPackage()
+        internal Package GetPackage()
         {
             return new Package
             {
@@ -115,7 +115,7 @@ namespace MvxAutomationApp.Core.ViewModels
             };
         }
 
-        protected bool Validate()
+        internal bool Validate()
         {
             var validator = new ValidationHelper();
             validator.AddRequiredRule(() => Barcode, string.Format(AppResources.FieldRequired, nameof(Barcode)));

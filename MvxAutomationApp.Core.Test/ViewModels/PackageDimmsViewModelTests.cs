@@ -4,7 +4,6 @@ using MvvmCross.Tests;
 using MvxAutomationApp.Core.Models;
 using MvxAutomationApp.Core.Resources;
 using MvxAutomationApp.Core.Services;
-using MvxAutomationApp.Core.Test.Stubs;
 using MvxAutomationApp.Core.ViewModels;
 using NUnit.Framework;
 using Shouldly;
@@ -35,11 +34,9 @@ namespace MvxAutomationApp.Core.Test.ViewModels
         protected override void AdditionalSetup()
         {
             _popupMock = new Mock<IPopupService>();
-
             Ioc.RegisterSingleton(_popupMock.Object);
 
             _deliveryMock = new Mock<IDeliveryService>();
-
             Ioc.RegisterSingleton(_deliveryMock.Object);
         }
 
@@ -162,7 +159,7 @@ namespace MvxAutomationApp.Core.Test.ViewModels
         public void GetPackage_NewPackageWithDataAndPickupTimeReturned(string barcode, double? depth, double? width, double? height)
         {
             //Arrange
-            var viewModel = Ioc.IoCConstruct<PackageDimmsViewModelStub>();
+            var viewModel = Ioc.IoCConstruct<PackageDimmsViewModel>();
 
             viewModel.Barcode = barcode;
             viewModel.Depth = depth;
@@ -192,7 +189,7 @@ namespace MvxAutomationApp.Core.Test.ViewModels
         public void Validate_ReturnExpectedValidationResult(string barcode, double? depth, double? width, double? height, bool expectedValidationResult)
         {
             //Arrange
-            var viewModel = Ioc.IoCConstruct<PackageDimmsViewModelStub>();
+            var viewModel = Ioc.IoCConstruct<PackageDimmsViewModel>();
 
             viewModel.Barcode = barcode;
             viewModel.Depth = depth;
