@@ -38,3 +38,7 @@ Automation Test App for Android Phones &amp; Tablets written in Xamarin.Android 
 ## Unit Tests Code Coverage
 
 <img src=".\Screenshots\CodeCoverage.png">
+
+## Test DB
+
+For Testing Purpose in Debug mode at main screen `Turn On/Off Test DB` Switch available. When it's turn on it clean DB and add 2k records for current Date. When it's turn off it just clean DB.
