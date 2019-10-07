@@ -20,6 +20,7 @@
     local:layout_constraintTop_toBottomOf="@id/pick_date_button"
     local:MvxBind="Visibility Visibility(IsLoading)"/>
   <mvvmcross.droid.support.v7.recyclerview.MvxRecyclerView
+    android:id="@+id/packages_list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="@dimen/margin_huge"

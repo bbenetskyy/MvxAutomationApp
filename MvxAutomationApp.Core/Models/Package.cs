@@ -15,16 +15,4 @@ namespace MvxAutomationApp.Core.Models
             return $"Dimm ({Width} x {Height} x {Depth})";
         }
     }
-
-    //public class PackageIem : MvxNotifyPropertyChanged
-    //{
-    //    private string _barcode;
-
-    //    public string Barcode
-    //    {
-    //        get => _barcode;
-    //        set => SetProperty(ref _barcode, value);
-    //    }
-
-    //}
 }

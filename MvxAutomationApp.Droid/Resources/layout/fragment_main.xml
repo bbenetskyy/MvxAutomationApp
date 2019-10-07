@@ -14,7 +14,7 @@
         local:layout_constraintGuide_percent="0.5"/>
 
     <Button
-        android:id="@+id/txt_welcome"
+        android:id="@+id/btn_package_dimms"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/app_package_dimms"
@@ -26,7 +26,7 @@
         local:MvxBind="Click PackageDimmsCommand; Enabled InvertedBoolean(IsLoading)" />
 
     <Button
-        android:id="@+id/txt_message"
+        android:id="@+id/btn_show_packages"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/app_show_packages"
@@ -38,7 +38,7 @@
         local:MvxBind="Click ShowPackagesCommand; Enabled InvertedBoolean(IsLoading)" />
  
     <ProgressBar
-      android:id="@+id/main_progressBar"
+      android:id="@+id/main_progress_bar"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       local:layout_constraintLeft_toLeftOf="parent"

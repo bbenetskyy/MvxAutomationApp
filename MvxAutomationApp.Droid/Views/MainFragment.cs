@@ -21,7 +21,7 @@ namespace MvxAutomationApp.Droid.Views
         {
             base.OnActivityCreated(savedInstanceState);
 #if !DEBUG
-            var progressBar = View.FindViewById<ProgressBar>(Resource.Id.main_progressBar);
+            var progressBar = View.FindViewById<ProgressBar>(Resource.Id.main_progress_bar);
             progressBar.Visibility = ViewStates.Invisible;
 
             var @switch = View.FindViewById<Switch>(Resource.Id.main_switch);
